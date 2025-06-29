@@ -1,0 +1,27 @@
+name = "1min-gateway"
+main = "src/index.js"
+compatibility_date = "2025-01-01"
+
+[env.production]
+name = "1min-gateway-prod"
+
+# Optional: KV namespace for caching (not required for basic functionality)
+# [[kv_namespaces]]
+# binding = "CACHE"
+# id = "your-kv-namespace-id"
+# preview_id = "your-preview-kv-namespace-id"
+
+[vars]
+ONE_MIN_API_URL = "https://api.1min.ai"
+
+[env.development.vars]
+ONE_MIN_API_URL = "http://localhost:8788"
+
+# Optional: KV namespace for development (not required for basic functionality)
+# [[env.development.kv_namespaces]]
+# binding = "CACHE"
+# id = "your-dev-kv-namespace-id"
+# preview_id = "your-preview-kv-namespace-id"
+
+# Note: No API key secrets needed! 
+# The gateway operates as a pure proxy using client-provided API keys in the Authorization header
