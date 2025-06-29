@@ -31,7 +31,7 @@ async function testChatCompletion() {
         'Authorization': `Bearer ${API_KEY}`
       },
       body: JSON.stringify({
-        model: 'gpt-3.5-turbo',
+        model: 'o3-mini',
         messages: [
           { role: 'user', content: 'Say "Hello, World!" and nothing else.' }
         ],
@@ -65,7 +65,7 @@ async function testStreamingChatCompletion() {
         'Authorization': `Bearer ${API_KEY}`
       },
       body: JSON.stringify({
-        model: 'gpt-3.5-turbo',
+        model: 'claude-3-5-sonnet-20241022',
         messages: [
           { role: 'user', content: 'Count from 1 to 5.' }
         ],
@@ -143,7 +143,7 @@ async function testImageGeneration() {
         'Authorization': `Bearer ${API_KEY}`
       },
       body: JSON.stringify({
-        model: 'dall-e-3',
+        model: '6b645e3a-d64f-4341-a6d8-7a3690fbf042',
         prompt: 'A cute cat sitting on a rainbow',
         size: '1024x1024',
         quality: 'standard',

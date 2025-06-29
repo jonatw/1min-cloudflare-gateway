@@ -330,13 +330,12 @@ async function handleImageGeneration(request, env) {
 
   // Transform request for 1min AI
   const transformedRequest = {
-    type: 'IMAGE_GENERATION',
+    type: 'IMAGE_GENERATOR',
     model: body.model,
     promptObject: {
       prompt: body.prompt,
-      size: body.size || '1024x1024',
-      quality: body.quality || 'standard',
-      n: body.n || 1
+      n: body.n || 1,
+      size: body.size || '1024x1024'
     }
   };
 
@@ -357,13 +356,12 @@ async function handleImageGeneration(request, env) {
     const responseData = await oneMinResponse.json();
     
     // Transform response to OpenAI format
-    const images = Array.isArray(responseData.images) ? responseData.images : [responseData.image];
     const transformedResponse = {
       created: Math.floor(Date.now() / 1000),
-      data: images.map(img => ({
-        url: img.url,
+      data: [{
+        url: responseData.temporaryUrl || responseData.aiRecord?.temporaryUrl,
         revised_prompt: body.prompt
-      }))
+      }]
     };
 
     return new Response(JSON.stringify(transformedResponse), {

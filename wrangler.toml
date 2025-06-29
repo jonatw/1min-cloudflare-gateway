@@ -5,6 +5,9 @@ compatibility_date = "2025-01-01"
 [env.production]
 name = "1min-gateway-prod"
 
+[env.development]
+name = "1min-gateway-dev"
+
 # Optional: KV namespace for caching (not required for basic functionality)
 # [[kv_namespaces]]
 # binding = "CACHE"
