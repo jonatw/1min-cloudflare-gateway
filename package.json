@@ -13,7 +13,8 @@
   "homepage": "https://github.com/jonatw/1min-cloudflare-gateway#readme",
   "scripts": {
     "dev": "wrangler dev --env development",
-    "deploy": "wrangler deploy",
+    "deploy": "wrangler deploy --env=\"\"",
+    "deploy:prod": "wrangler deploy --env=production",
     "test": "vitest",
     "test:api": "node test/test-api.js",
     "test:sdk": "node test/test-openai-sdk.js",
